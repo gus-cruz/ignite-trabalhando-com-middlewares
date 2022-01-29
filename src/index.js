@@ -42,8 +42,7 @@ function checksTodoExists(request, response, next) {
     return response.status(404).json({error: "Username not found!"})
   }
 
-  const checkIsAnUUID = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi
-  if(!checkIsAnUUID.test(id)){
+  if(!validate(id)){
     return response.status(400).json({error: "Id isn't an uuid!"})
   }
 
